@@ -43,6 +43,7 @@ Afirstperson415Projectile::Afirstperson415Projectile()
 void Afirstperson415Projectile::BeginPlay()
 {
 	Super::BeginPlay();
+	
 	randColor = FLinearColor(UKismetMathLibrary::RandomFloatInRange(0.f, 1.f), UKismetMathLibrary::RandomFloatInRange(0.f, 1.f), UKismetMathLibrary::RandomFloatInRange(0.f, 1.f), 1.f);
 
 	dmiMat = UMaterialInstanceDynamic::Create(projMat, this);
@@ -71,8 +72,12 @@ void Afirstperson415Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* Othe
 			CollisionComp->BodyInstance.SetCollisionProfileName("NoCollision");
 		}
 		float frameNum = UKismetMathLibrary::RandomFloatInRange(0.f, 3.f);
+		
+		FRotator DecalRotation = UKismetMathLibrary::MakeRotFromX(Hit.Normal);
+		DecalRotation.Roll += 90.0f; // Adjust to ensure proper orientation
 
-		auto Decal = UGameplayStatics::SpawnDecalAtLocation(GetWorld(), baseMat, FVector(UKismetMathLibrary::RandomFloatInRange(20.f, 40.f)), Hit.Location, Hit.Normal.Rotation(), 0.f);
+		auto Decal = UGameplayStatics::SpawnDecalAtLocation(GetWorld(), baseMat, FVector(UKismetMathLibrary::RandomFloatInRange(20.f, 40.f)), Hit.Location, DecalRotation, 0.f);
+
 		auto MatInstance = Decal->CreateDynamicMaterialInstance();
 
 		MatInstance->SetVectorParameterValue("Color", randColor);

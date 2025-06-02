@@ -5,18 +5,18 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/BoxComponent.h"
-#include "CubeDMIMod.generated.h"
+#include "DustTriggerBox.generated.h"
 
 class UNiagaraSystem;
 
 UCLASS()
-class FIRSTPERSON415_API ACubeDMIMod : public AActor
+class FIRSTPERSON415_API ADustTriggerBox : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ACubeDMIMod();
+	ADustTriggerBox();
 
 protected:
 	// Called when the game starts or when spawned
@@ -30,11 +30,8 @@ public:
 		UBoxComponent* boxComp;
 
 	UPROPERTY(EditAnywhere)
-		UStaticMeshComponent* cubeMesh;
-
-	UPROPERTY(EditAnywhere)
 		UMaterialInterface* baseMat;
-	
+
 	UPROPERTY()
 		UMaterialInstanceDynamic* dmiMat;
 
@@ -42,6 +39,6 @@ public:
 		UNiagaraSystem* colorP;
 
 	UFUNCTION()
-	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+		void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 };

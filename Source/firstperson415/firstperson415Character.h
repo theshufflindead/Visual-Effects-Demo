@@ -44,6 +44,10 @@ protected:
 	virtual void BeginPlay();
 
 public:
+
+	// Bool to set if player is teleporting or not
+	UPROPERTY(EditAnywhere)
+	bool isTeleporting;
 		
 	/** Look Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))

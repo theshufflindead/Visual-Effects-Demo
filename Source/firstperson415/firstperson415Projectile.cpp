@@ -86,6 +86,7 @@ void Afirstperson415Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* Othe
 
 		APerlinProcTerrain* procTerrain = Cast<APerlinProcTerrain>(OtherActor);
 
+		//Deforms terrain on hit
 		if (procTerrain)
 		{
 			procTerrain->AlterMesh(Hit.ImpactPoint);

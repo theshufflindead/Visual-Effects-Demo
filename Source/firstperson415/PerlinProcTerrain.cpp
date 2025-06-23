@@ -35,6 +35,7 @@ void APerlinProcTerrain::Tick(float DeltaTime)
 
 }
 
+//Alters the perlin procedural mesh based on the impact point of the projectile
 void APerlinProcTerrain::AlterMesh(FVector ImpactPoint)
 {
 	for (int i = 0; i < Vertices.Num(); i++)
@@ -49,6 +50,7 @@ void APerlinProcTerrain::AlterMesh(FVector ImpactPoint)
 	}
 }
 
+//Creates the vertices for the procedural mesh based on various values
 void APerlinProcTerrain::CreateVertices()
 {
 	for (int X = 0; X <= XSize; X++) 
@@ -63,6 +65,7 @@ void APerlinProcTerrain::CreateVertices()
 	}
 }
 
+//Draws the triangles using the procedurally generated vertices
 void APerlinProcTerrain::CreateTriangles()
 {
 	int Vertex = 0;

@@ -65,7 +65,7 @@ void APortal::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherA
 				FTimerHandle TimerHandle;
 				FTimerDelegate TimerDelegate;
 				TimerDelegate.BindUFunction(this, "SetBool", playerChar);
-				GetWorld()->GetTimerManager().SetTimer(TimerHandle, TimerDelegate, 1, false);
+				GetWorld()->GetTimerManager().SetTimer(TimerHandle, TimerDelegate, 0.1, false);
 			}
 		}
 	}

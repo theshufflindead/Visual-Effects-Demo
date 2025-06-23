@@ -45,7 +45,7 @@ public:
 
 	UPROPERTY(EditAnywhere)
 		UBoxComponent* boxComp;
-
+	
 	UPROPERTY(EditAnywhere)
 		APortal* OtherPortal;
 

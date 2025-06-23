@@ -38,6 +38,7 @@ void ADustTriggerBox::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor
 {
 	Afirstperson415Character* overlappedActor = Cast<Afirstperson415Character>(OtherActor);
 
+	//Checks is overlappedActor is valid, generates a random color by feeding in random float values
 	if (overlappedActor)
 	{
 		float ranNumX = UKismetMathLibrary::RandomFloatInRange(0.f, 1.f);
@@ -46,6 +47,7 @@ void ADustTriggerBox::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor
 
 		FLinearColor randColor = FLinearColor(ranNumX, ranNumY, ranNumZ, 1.f);
 
+		//Checks if colorP is valid, spawns the particle system with the generated color
 		if (colorP)
 		{
 			UNiagaraComponent* particleComp = UNiagaraFunctionLibrary::SpawnSystemAttached(colorP, OtherComp, NAME_None, FVector(0.f), FRotator(0.f), EAttachLocation::KeepRelativeOffset, true);
